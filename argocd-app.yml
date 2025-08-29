@@ -1,24 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana-dashboards-kubernetes
+  name: monitoring-grafana-kustomize
   namespace: argocd
   labels:
-    app.kubernetes.io/name: grafana-dashboards-kubernetes
+    app.kubernetes.io/name: monitoring-grafana-kustomize
     app.kubernetes.io/version: HEAD
     app.kubernetes.io/managed-by: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default # You may need to change this!
+  project: monitoring # You may need to change this!
   source:
     path: ./
-    repoURL: https://github.com/dotdc/grafana-dashboards-kubernetes
+    repoURL: https://github.com/sreeteja06/dotdc-grafana-dashboards-kubernetes
     targetRevision: HEAD
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: grafana
   syncPolicy:
     ## https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync
     automated:

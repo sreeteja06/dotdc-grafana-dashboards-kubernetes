@@ -2,9 +2,9 @@
 generatorOptions:
   disableNameSuffixHash: true
   labels:
-    grafana_dashboard: "1"
+    grafana_dashboard: 'true'
 commonAnnotations:
-  grafana_folder: "Kubernetes"
+  k8s-grafana-sidecar-target-directory: '/tmp/dashboards/k8s/'
 #namespace: monitoring
 
 # Generate a ConfigMap for each dashboard
